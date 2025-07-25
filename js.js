@@ -218,10 +218,12 @@ const app = {
             songNode = e.target.closest('.song:not(.active)');
             if (songNode || e.target.closest('.option')) { // nếu ko phải là active hoặc là option thì thực thi 
                 if (songNode) {
-                    _this.currentIndex = songNode.getAttribute('data-index')
+                    _this.currentIndex = Number(songNode.dataset.index); // Vì songNode.dataset.index: là dạng string   Phải chuyển qua numb
                     _this.loadCurrentSong();
                     audio.play();
                     _this.renderSong();
+                
+       
                 }
             }
             if (e.target.closest('.option')) {
@@ -229,8 +231,6 @@ const app = {
 
             }
         }
-
-
 
 
 
